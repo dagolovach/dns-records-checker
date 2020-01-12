@@ -63,7 +63,7 @@ def main(name_check, req_type, name_servers):
 
 # Check to see if this file is the "__main__" script being executed
 if __name__ == '__main__':
-    main("yahoo.com", "A", "3.45.48.15 8.8.8.8")
+    main("yahoo.com", "A", "8.8.8.8 8.8.4.4")
 '''
     if len(sys.argv) < 4:
         raise SyntaxError("Insufficient arguments.")
