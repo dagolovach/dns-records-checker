@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Module docstring."""
+"""Module docstring. Test"""
 
 # Imports
 import dns.resolver
