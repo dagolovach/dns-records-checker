@@ -60,11 +60,11 @@ class DnsRecordChecker:
 def main(name_check, req_type, name_servers):
     """Main script function"""
 
-    a = DnsRecordChecker(name_check, req_type, name_servers)
+    name_to_check = DnsRecordChecker(name_check, req_type, name_servers)
     if req_type == 'A':
-        a.check_a_record()
+        name_to_check.check_a_record()
     elif req_type == "PTR":
-        a.check_ptr_record()
+        name_to_check.check_ptr_record()
     else:
         print("Not Supported")
 
