@@ -9,6 +9,11 @@ import dns.reversename
 
 # Module Functions and Classes
 class DnsRecordChecker:
+    """Creating the class with:
+
+    name_check = IP address or FQDN
+    name_servers = IP addresses of DNS servers records need to be check at
+    """
 
     def __init__(self, name_check, req_type, name_servers):
         self.name_check = name_check
@@ -16,6 +21,8 @@ class DnsRecordChecker:
         self.name_servers = name_servers.split(" ")
 
     def check_a_record(self):
+        """Function to check the A record"""
+
         my_resolver = dns.resolver.Resolver()
         my_resolver.timeout = 1.0
         domain = self.name_check
@@ -32,6 +39,8 @@ class DnsRecordChecker:
             print(f"===> On {each} ===> {domain} is {server_result}")
 
     def check_ptr_record(self):
+        """Function to check the PTR record"""
+
         my_resolver = dns.resolver.Resolver()
         addr = dns.reversename.from_address(self.name_check)
         for each in self.name_servers:
@@ -48,7 +57,7 @@ class DnsRecordChecker:
 
 
 def main(name_check, req_type, name_servers):
-    """Main script function."""
+    """Main script function"""
 
     a = DnsRecordChecker(name_check, req_type, name_servers)
     if req_type == 'A':
