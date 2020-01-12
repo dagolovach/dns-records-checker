@@ -13,6 +13,7 @@ class DnsRecordChecker:
 
     name_check = IP address or FQDN
     name_servers = IP addresses of DNS servers records need to be check at
+    req_type = A/PTR type
     """
 
     def __init__(self, name_check, req_type, name_servers):
