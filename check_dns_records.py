@@ -5,6 +5,7 @@
 # Imports
 import dns.resolver
 import dns.reversename
+import sys
 
 
 # Module Functions and Classes
@@ -29,7 +30,8 @@ class DnsRecordChecker:
         """Function to check the A record"""
 
         my_resolver = dns.resolver.Resolver()
-        my_resolver.timeout = 1.0
+        my_resolver.timeout = 1
+        my_resolver.lifetime = 1
         domain = self.name_check
         for each in self.name_servers:
             server_result = []
@@ -40,6 +42,7 @@ class DnsRecordChecker:
                     server_result.append(str(server))
             except dns.exception.Timeout:
                 print(f'Timeout for {each}')
+                return
 
             print(f"===> On {each} ===> {domain} is {server_result}")
 
@@ -47,6 +50,8 @@ class DnsRecordChecker:
         """Function to check the PTR record"""
 
         my_resolver = dns.resolver.Resolver()
+        my_resolver.timeout = 1
+        my_resolver.lifetime = 1
         addr = dns.reversename.from_address(self.name_check)
         for each in self.name_servers:
             server_result = []
@@ -57,6 +62,7 @@ class DnsRecordChecker:
                     server_result.append(str(server))
             except dns.exception.Timeout:
                 print(f'Timeout for {each}')
+                return
 
             print(f"===> On {each} ===> {self.name_check} is {server_result}")
 
