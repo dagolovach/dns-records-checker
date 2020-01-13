@@ -11,9 +11,11 @@
 
 ## Setup
 python check_dns_records.py <IP/DOMAIN> <A/PTR> [DNS_IP1 DNSIP2 DNSIP3 ..]
-Example:
-python check_dns_records.py yahoo.com A 8.8.8.8 8.8.4.4 4.4.2.2
-python check_dns_records.py 98.137.246.7 PTR 8.8.8.8 8.8.4.4 4.4.2.2
+
+Examples:
+
+* python check_dns_records.py yahoo.com A 8.8.8.8 8.8.4.4 4.4.2.2
+* python check_dns_records.py 98.137.246.7 PTR 8.8.8.8 8.8.4.4 4.4.2.2
 
 ## Contact
 * Created by Dmitry Golovach
