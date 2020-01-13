@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Module docstring. Test"""
+"""A simple script to check A or PTR record in the list of multiple DNS servers"""
 
 # Imports
 import dns.resolver
@@ -14,6 +14,10 @@ class DnsRecordChecker:
     name_check = IP address or FQDN
     name_servers = IP addresses of DNS servers records need to be check at
     req_type = A/PTR type
+
+    methods:
+    check_a_record
+    check_ptr_record
     """
 
     def __init__(self, name_check, req_type, name_servers):
@@ -73,8 +77,7 @@ def main(name_check, req_type, name_servers):
 
 # Check to see if this file is the "__main__" script being executed
 if __name__ == '__main__':
-    main("yahoo.com", "A", "8.8.8.8 8.8.4.4")
-'''
+
     if len(sys.argv) < 4:
         raise SyntaxError("Insufficient arguments.")
     #if len(sys.argv) != 3:
@@ -83,4 +86,3 @@ if __name__ == '__main__':
     else:
         # If there are no keyword arguments
         main(sys.argv[1], sys.argv[2], ' '.join(sys.argv[3:]))
-'''
