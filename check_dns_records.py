@@ -41,8 +41,7 @@ class DnsRecordChecker:
                 for server in answers:
                     server_result.append(str(server))
             except dns.exception.Timeout:
-                print(f'Timeout for {each}')
-                return
+                server_result = 'Timeout'
 
             print(f"===> On {each} ===> {domain} is {server_result}")
 
@@ -61,8 +60,7 @@ class DnsRecordChecker:
                 for server in answers:
                     server_result.append(str(server))
             except dns.exception.Timeout:
-                print(f'Timeout for {each}')
-                return
+                server_result = 'Timeout'
 
             print(f"===> On {each} ===> {self.name_check} is {server_result}")
 
@@ -80,15 +78,14 @@ def main(name_check, req_type, name_servers):
 
     return
 
-
 # Check to see if this file is the "__main__" script being executed
 if __name__ == '__main__':
 
     if len(sys.argv) < 4:
         raise SyntaxError("Insufficient arguments.")
-    #if len(sys.argv) != 3:
-    #    # If there are keyword arguments
-    #    main(sys.argv[1], sys.argv[2], *sys.argv[3:])
+    if len(sys.argv) == 3:
+        # If there is just one DNS server
+        main(sys.argv[1], sys.argv[2], sys.argv[3])
     else:
-        # If there are no keyword arguments
+        # If there are multiple DNS servers
         main(sys.argv[1], sys.argv[2], ' '.join(sys.argv[3:]))
