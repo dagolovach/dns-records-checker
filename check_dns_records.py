@@ -27,7 +27,7 @@ class DnsRecordChecker:
         self.name_servers = name_servers.split(" ")
 
     def check_a_record(self):
-        """Function to check the A record"""
+        """Function to check the A records"""
 
         my_resolver = dns.resolver.Resolver()
         my_resolver.timeout = 1
