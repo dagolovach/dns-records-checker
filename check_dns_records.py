@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
-"""A simple script to check A or PTR record in the list of multiple DNS servers"""
+"""A simple script to check A or PTR record in the list of multiple DNS servers
+
+(C) 2019 Dmitry Golovach
+email: dmitry.golovach@outlook.com
+"""
 
 # Imports
 import dns.resolver
